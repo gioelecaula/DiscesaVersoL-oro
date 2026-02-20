@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Impostazioni Volume</title>
+    <style>
+        body {
+            background-image: url('./img/grok-video-bf45ca97-c8ab-42a0-b4d5-0aa69468d150-_1_.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #1a1a1a;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .volume-container {
+            background: rgba(0, 20, 40, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 191, 255, 0.1);
+        }
+        input[type="range"] {
+            width: 250px;
+            cursor: pointer;
+        }
+        .back-btn {
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #00bfff 0%, #1e90ff 50%, #0099cc 100%);
+            border: 2px solid rgba(0, 191, 255, 0.6);
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: linear-gradient(135deg, #87ceeb 0%, #00d4ff 50%, #00bfff 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="volume-container">
+        <h1>Impostazioni</h1>
+        <label for="volumeSlider">Volume Musica/Video</label>
+        <br><br>
+        <input type="range" id="volumeSlider" min="0" max="100" value="50">
+        <p>Livello: <span id="volumeValue">50</span>%</p>
+        
+        <button class="back-btn" onclick="window.location.href='menu.html'">← Torna al Menu</button>
+    </div>
+
+    <script src="volume.js"></script>
+</body>
+</html>

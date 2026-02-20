@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu di Gioco</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* 1. IMPOSTAZIONI DELLO SFONDO */
+            background-image: url('./img/grok-video-bf45ca97-c8ab-42a0-b4d5-0aa69468d150-_1_.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #1a1a1a; /* Fallback se l'immagine non carica */
+            
+            /* 2. LAYOUT */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            position: relative; /* Necessario per il posizionamento del titolo */
+            overflow: hidden;   /* Evita scrollbar indesiderate */
+        }
+
+        /* Animazione glow per il titolo */
+        @keyframes glowPulse {
+            0%, 100% {
+                text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 191, 255, 0.6);
+            }
+            50% {
+                text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 191, 255, 0.9), 0 0 60px rgba(135, 206, 235, 0.5);
+            }
+        }
+
+        /* Animazione shimmer per i bottoni */
+        @keyframes shimmerEffect {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Animazione glow bottone */
+        @keyframes buttonGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 191, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 191, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        /* Animazione bordo */
+        @keyframes borderGlow {
+            0%, 100% {
+                border-color: rgba(0, 191, 255, 0.6);
+            }
+            50% {
+                border-color: rgba(0, 255, 255, 0.9);
+            }
+        }
+
+        /* TITOLO IN ALTO CENTRALE */
+        .main-title {
+            position: relative;
+            color: #ffffff;
+            font-size: 3rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            animation: glowPulse 3s ease-in-out infinite;
+            text-align: center;
+            width: 100%;
+            z-index: 10;
+            margin-bottom: 30px;
+        }
+
+        .menu-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 360px;
+            background: rgba(0, 20, 40, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 191, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            margin-top: 40px;
+        }
+
+.logo-rotondo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            border: 3px solid rgba(0, 191, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1); 
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 14px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .btn:hover {
+            background-color: white;
+            color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-play {
+            background: linear-gradient(135deg, #00bfff 0%, #1e90ff 50%, #0099cc 100%);
+            background-size: 200% 200%;
+            border: 2px solid rgba(0, 191, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            font-size: 1.6rem;
+            padding: 24px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: buttonGlow 3s ease-in-out infinite, borderGlow 4s ease-in-out infinite;
+        }
+
+        /* Effetto shimmer interno */
+        .btn-play::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            pointer-events: none;
+        }
+
+        .btn-play:hover::before {
+            animation: shimmerEffect 0.6s ease;
+        }
+        
+        .btn-play:hover {
+            background: linear-gradient(135deg, #87ceeb 0%, #00d4ff 50%, #00bfff 100%);
+            background-size: 200% 200%;
+            color: #000;
+            box-shadow: 0 0 50px rgba(0, 191, 255, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 15px 40px rgba(0, 191, 255, 0.6);
+            transform: translateY(-8px) scale(1.08);
+            border-color: rgba(0, 255, 255, 1);
+        }
+
+        /* Rimuove lo stile predefinito dei link */
+        a {
+            text-decoration: none;
+        }
+
+        /* Ottimizzazione per mobile */
+        @media (max-width: 600px) {
+            .main-title {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            .menu-container {
+                width: 90%;
+                padding: 35px;
+            }
+            .btn-play {
+                font-size: 1.3rem;
+            }
+            .logo-rotondo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">Discesa verso l'oro❄️</h1>
+
+    <img src="./img/logoPCTO.png" alt="Logo" class="logo-rotondo">
+
+    <div class="menu-container">
+        <a href="personaggi.html">
+            <button class="btn btn-play">GIOCA</button>
+        </a> 
+        <a href="volume.html">
+            <button class="btn btn-play">VOLUME</button>
+        </a>
+        <a href="sito/indexSito.html">
+            <button class="btn btn-play">SITO</button>
+        </a>
+    </div>
+
+</body>
+</html>
