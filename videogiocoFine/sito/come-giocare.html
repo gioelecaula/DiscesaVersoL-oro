@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Gioco dello Sciatore – Come giocare</title>
+  <title>Skier Game – How to Play</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,15 +12,15 @@
         <div class="brand">
           <img src="logo-discesa.png" alt="Logo" class="brand-logo" />
           <div>
-            <div class="brand-text-main">Gioco dello Sciatore</div>
-            <div class="brand-text-sub">Controllo con la mano e quiz</div>
+            <div class="brand-text-main">Skier Game</div>
+            <div class="brand-text-sub">Hand control and quiz</div>
           </div>
         </div>
         <nav class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
-          <a href="autori.html" class="nav-link">Autori</a>
-          <a href="regole.html" class="nav-link">Regole</a>
-          <a href="come-giocare.html" class="nav-link nav-active">Come giocare</a>
+          <a href="autori.html" class="nav-link">Authors</a>
+          <a href="regole.html" class="nav-link">Rules</a>
+          <a href="come-giocare.html" class="nav-link nav-active">How to Play</a>
           <a href="quiz.html" class="nav-link">Quiz</a>
         </nav>
       </div>
@@ -31,47 +31,47 @@
         <section class="card">
           <div class="card-header">
             <div class="card-title-row">
-              <h1 class="card-title">Come si gioca</h1>
-              <span class="card-tag">Controlli con la mano</span>
+              <h1 class="card-title">How to Play</h1>
+              <span class="card-tag">Hand Controls</span>
             </div>
             <p class="card-subtitle text-soft">
-              Il gioco usa una telecamera per riconoscere i movimenti della tua mano
-              e comandare così lo sciatore in tempo reale.
+              The game uses a camera to recognize your hand movements
+              and control the skier in real time.
             </p>
           </div>
           <div class="card-body">
             <ul>
-              <li>Se sposti la mano verso <strong>destra</strong>, lo sciatore si sposta a destra.</li>
-              <li>Se sposti la mano verso <strong>sinistra</strong>, lo sciatore si sposta a sinistra.</li>
-              <li>Se <strong>alzi</strong> la mano, il personaggio salta gli ostacoli saltabili.</li>
+              <li>If you move your hand to the <strong>right</strong>, the skier moves right.</li>
+              <li>If you move your hand to the <strong>left</strong>, the skier moves left.</li>
+              <li>If you <strong>raise</strong> your hand, the character jumps over jumpable obstacles.</li>
             </ul>
 
             <p style="margin-top: 14px;" class="text-soft">
-              Qui sotto puoi simulare i movimenti cliccando sui pulsanti
-              (non controllano davvero la telecamera, ma mostrano cosa succederebbe nel gioco).
+              Below you can simulate the movements by clicking the buttons
+              (they don’t actually control the camera, but they show what would happen in the game).
             </p>
 
             <div class="controls-row">
-              <button type="button" class="button-ghost" id="ctrl-sx">Muovi mano a sinistra</button>
-              <button type="button" class="button-ghost" id="ctrl-dx">Muovi mano a destra</button>
-              <button type="button" class="button-primary" id="ctrl-salto">Alza la mano (salta)</button>
+              <button type="button" class="button-ghost" id="ctrl-sx">Move hand to the left</button>
+              <button type="button" class="button-ghost" id="ctrl-dx">Move hand to the right</button>
+              <button type="button" class="button-primary" id="ctrl-salto">Raise hand (jump)</button>
             </div>
 
             <div class="state-text" id="ctrl-state">
-              Clicca un pulsante per simulare un movimento della mano.
+              Click a button to simulate a hand movement.
             </div>
           </div>
         </section>
         <section class="card">
           <div class="card-body" style="text-align: center;">
-            <a href="../menu.html" class="button-primary">← Torna al menu del gioco</a>
+            <a href="../menu.html" class="button-primary">← Back to the game menu</a>
           </div>
         </section>
       </div>
     </main>
 
     <footer class="app-footer">
-      Progetto di Gioele Caula, Mattia Girdano, Paolo Foglia, Matilde Ghisoli.
+      Project by Gioele Caula, Mattia Girdano, Paolo Foglia, Matilde Ghisoli.
     </footer>
   </div>
 
@@ -79,15 +79,15 @@
     const state = document.getElementById("ctrl-state");
     document.getElementById("ctrl-sx").addEventListener("click", () => {
       state.textContent =
-        "Hai mosso la mano a SINISTRA → lo sciatore si sposta verso sinistra!";
+        "You moved your hand to the LEFT → the skier moves to the left!";
     });
     document.getElementById("ctrl-dx").addEventListener("click", () => {
       state.textContent =
-        "Hai mosso la mano a DESTRA → lo sciatore si sposta verso destra!";
+        "You moved your hand to the RIGHT → the skier moves to the right!";
     });
     document.getElementById("ctrl-salto").addEventListener("click", () => {
       state.textContent =
-        "Hai alzato la mano → lo sciatore SALTA gli ostacoli saltabili!";
+        "You raised your hand → the skier JUMPS over jumpable obstacles!";
     });
   </script>
 </body>
